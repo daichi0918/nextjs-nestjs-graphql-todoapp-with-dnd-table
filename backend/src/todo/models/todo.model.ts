@@ -7,7 +7,7 @@ export class Todo {
   id: number;
 
   @Field()
-  name: string;
+  title: string;
 
   @Field()
   dueDate: string;
