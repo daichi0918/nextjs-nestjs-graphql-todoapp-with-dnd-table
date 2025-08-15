@@ -6,15 +6,26 @@ export class TodoService {
   todos: Todo[] = [];
 
   getTodos(): Todo[] {
-    const todo1 = new Todo();
-    todo1.id = 1;
-    todo1.title = 'Sample Todo 1';
-    todo1.dueDate = '2023-10-01';
-    todo1.status = 'NOT_STARTED';
-    todo1.priority = 'HIGH';
-    todo1.description = 'This is a sample todo item.';
-    this.todos.push(todo1);
-
     return this.todos;
+  }
+
+  createTodo(
+    title: string,
+    dueDate: string,
+    priority: string,
+    description?: string,
+  ): Todo {
+    const newTodo = new Todo();
+    newTodo.id = this.todos.length + 1; // Simple ID generation
+    newTodo.title = title;
+    newTodo.dueDate = dueDate;
+    newTodo.status = 'NOT_STARTED';
+    newTodo.priority = priority as 'HIGH' | 'MEDIUM' | 'LOW';
+    newTodo.description = description || null;
+    // newTodo.createdAt = new Date();
+    // newTodo.updatedAt = new Date();
+
+    this.todos.push(newTodo);
+    return newTodo;
   }
 }

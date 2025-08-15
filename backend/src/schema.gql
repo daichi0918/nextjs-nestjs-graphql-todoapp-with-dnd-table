@@ -23,3 +23,7 @@ scalar DateTime
 type Query {
   getTodos: [Todo]!
 }
+
+type Mutation {
+  createTodo(title: String!, dueDate: String!, priority: String!, description: String): Todo!
+}
