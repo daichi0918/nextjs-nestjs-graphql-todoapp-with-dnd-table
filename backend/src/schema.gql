@@ -25,5 +25,12 @@ type Query {
 }
 
 type Mutation {
-  createTodo(title: String!, dueDate: String!, priority: String!, description: String): Todo!
+  createTodo(createTodoInput: CreateTodoInput!): Todo!
+}
+
+input CreateTodoInput {
+  title: String!
+  dueDate: String!
+  priority: String!
+  description: String
 }
