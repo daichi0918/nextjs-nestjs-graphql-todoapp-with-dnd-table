@@ -1,5 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-// import { Status } from 'generated/prisma';
+import { Priority, Status } from 'generated/prisma';
 
 @ObjectType()
 export class Todo {
@@ -13,14 +13,13 @@ export class Todo {
   dueDate: string;
 
   @Field()
-  // status: Status;
-  status: 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED';
+  status: Status;
 
   // @Field(() => Int, {
   //   description: 'タスクの優先度',
   // })
   @Field()
-  priority: 'HIGH' | 'MEDIUM' | 'LOW';
+  priority: Priority;
 
   @Field(() => String, {
     nullable: true,
