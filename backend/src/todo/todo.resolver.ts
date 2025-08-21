@@ -1,4 +1,4 @@
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { TodoService } from './todo.service';
 import { Todo as TodoModel } from './models/todo.model';
 import { CreateTodoInput } from './dto/createTodo.input';
@@ -26,5 +26,10 @@ export class TodoResolver {
     @Args('updateTodoInput') updateTodoInput: UpdateTodoInput,
   ): Promise<Todo> {
     return await this.todoService.updateTodo(updateTodoInput);
+  }
+
+  @Mutation(() => TodoModel)
+  async deleteTodo(@Args('id', { type: () => Int }) id: number): Promise<Todo> {
+    return await this.todoService.deleteTodo(id);
   }
 }
