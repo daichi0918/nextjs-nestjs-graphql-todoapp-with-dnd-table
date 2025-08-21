@@ -3,6 +3,7 @@ import { TodoService } from './todo.service';
 import { Todo as TodoModel } from './models/todo.model';
 import { CreateTodoInput } from './dto/createTodo.input';
 import { Todo } from 'generated/prisma';
+import { UpdateTodoInput } from './dto/updateTodo.input';
 
 @Resolver()
 export class TodoResolver {
@@ -18,5 +19,12 @@ export class TodoResolver {
     @Args('createTodoInput') createTodoInput: CreateTodoInput,
   ): Promise<Todo> {
     return await this.todoService.createTodo(createTodoInput);
+  }
+
+  @Mutation(() => TodoModel)
+  async updateTodo(
+    @Args('updateTodoInput') updateTodoInput: UpdateTodoInput,
+  ): Promise<Todo> {
+    return await this.todoService.updateTodo(updateTodoInput);
   }
 }

@@ -1,5 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
 import { IsDateString, IsNotEmpty } from 'class-validator';
+import { Priority } from 'generated/prisma';
 
 @InputType()
 export class CreateTodoInput {
@@ -12,7 +13,7 @@ export class CreateTodoInput {
   dueDate: string;
 
   @Field(() => String)
-  priority: 'HIGH' | 'MEDIUM' | 'LOW';
+  priority: Priority;
 
   @Field({ nullable: true })
   description?: string;
