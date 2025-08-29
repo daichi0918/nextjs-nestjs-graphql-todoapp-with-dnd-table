@@ -10,8 +10,10 @@ export class TodoResolver {
   constructor(private readonly todoService: TodoService) {}
 
   @Query(() => [TodoModel], { nullable: 'items' })
-  async getTodos(): Promise<Todo[]> {
-    return await this.todoService.getTodos();
+  async getTodos(
+    @Args('userId', { type: () => Int }) userId: number,
+  ): Promise<Todo[]> {
+    return await this.todoService.getTodos(userId);
   }
 
   @Mutation(() => TodoModel)

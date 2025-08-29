@@ -7,18 +7,19 @@ import { UpdateTodoInput } from './dto/updateTodo.input';
 @Injectable()
 export class TodoService {
   constructor(private readonly prismaService: PrismaService) {}
-  async getTodos(): Promise<Todo[]> {
-    return await this.prismaService.todo.findMany();
+  async getTodos(userId: number): Promise<Todo[]> {
+    return await this.prismaService.todo.findMany({ where: { userId } });
   }
 
   async createTodo(createTodoInput: CreateTodoInput): Promise<Todo> {
-    const { title, dueDate, priority, description } = createTodoInput;
+    const { title, dueDate, priority, description, userId } = createTodoInput;
     return await this.prismaService.todo.create({
       data: {
         title,
         dueDate,
         priority,
         description,
+        userId,
       },
     });
   }
