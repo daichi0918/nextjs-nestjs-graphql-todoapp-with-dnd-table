@@ -30,6 +30,7 @@ type User {
 
 type Query {
   getTodos(userId: Int!): [Todo]!
+  getUser(email: String!): User
 }
 
 type Mutation {
