@@ -28,6 +28,11 @@ type User {
   updatedAt: DateTime!
 }
 
+type SignInResponse {
+  accessToken: String!
+  user: User!
+}
+
 type Query {
   getTodos(userId: Int!): [Todo]!
   getUser(email: String!): User
@@ -38,6 +43,7 @@ type Mutation {
   updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
   deleteTodo(id: Int!): Todo!
   createUser(createUserInput: CreateUserInput!): User!
+  signIn(signInInput: SignInInput!): SignInResponse!
 }
 
 input CreateTodoInput {
@@ -59,6 +65,11 @@ input UpdateTodoInput {
 
 input CreateUserInput {
   name: String!
+  email: String!
+  password: String!
+}
+
+input SignInInput {
   email: String!
   password: String!
 }
