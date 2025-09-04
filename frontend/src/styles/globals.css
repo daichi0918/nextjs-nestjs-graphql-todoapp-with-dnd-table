@@ -10,6 +10,41 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-white: #ffffff;
+
+  /* bg */
+  --color-bg-base: #fafafa;
+  --color-bg-gray: #e7e7e7;
+  --color-bg-natural: #718096;
+  --color-bg-natural-light: #939dad;
+
+  /* border */
+  --color-border-base: #ececec;
+  --color-border-control: #8c8c8c;
+
+  /* text */
+  --color-text-base: #000000;
+  --color-text-gray: #8c8c8c;
+  --color-text-placeholder: #bfbfbf;
+
+  /* link */
+  --color-link-base: #0066ff;
+  --color-link-base-hover: #0053b3;
+
+  /* others */
+  --color-brand-green: #00d19f;
+  --color-brand-green-light: #d9f1eb;
+  --color-info: #4c76ee;
+  --color-positive: #32c08a;
+  --color-positive-light: #ecfaf4;
+  --color-alert: #ff4752;
+  --color-alert-light: #fff4f5;
+  --color-alert-hover: #ca1a24;
+  --color-star: #ffb800;
+  --color-warn: #eb7e1a;
+  --color-star-light: #fff7e5;
+  --color-warn-light: #ffecdb;
 }
 
 @media (prefers-color-scheme: dark) {
