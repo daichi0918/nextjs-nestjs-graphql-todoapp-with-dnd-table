@@ -5,8 +5,12 @@ import {
   type SignInInput,
 } from '../validation/schema/FormSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
+import { useState } from 'react';
 
 const PageTemplate = () => {
+  const [isActive, setIsActive] = useState(true);
+  const [errorSignIn, setErrorSignIn] = useState('');
   const {
     // handleSubmit,
     register,
@@ -18,7 +22,7 @@ const PageTemplate = () => {
   return (
     <div className="mt-14">
       <div className="mx-auto flex max-w-[320px] flex-col items-center justify-center space-y-6 pt-10">
-        <PageHeader title="Sotas工程管理ログイン" />
+        <PageHeader title="Sotas Todoアプリ" />
 
         <div className="w-full">
           <form className="space-y-6">
@@ -64,6 +68,26 @@ const PageTemplate = () => {
                 </div>
               </div>
             </div>
+
+            <button
+              type="submit"
+              className={`w-full p-2 font-bold cursor-pointer text-sm ${
+                !isActive
+                  ? 'bg-bg-gray text-text-gray'
+                  : 'bg-link-base text-white'
+              }`}
+            >
+              ログインする
+            </button>
+
+            <div className="text-alert mt-1 font-bold">{errorSignIn}</div>
+
+            <Link
+              href="/signup"
+              className="text-link-base block font-bold text-center"
+            >
+              新規登録する
+            </Link>
           </form>
         </div>
       </div>
